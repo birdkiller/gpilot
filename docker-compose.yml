@@ -35,6 +35,7 @@ services:
     build:
       context: ./backend
       dockerfile: ../deploy/Dockerfile.backend
+      network: host
     container_name: gpilot-backend
     ports:
       - "8080:8080"
@@ -57,6 +58,7 @@ services:
     build:
       context: ./frontend
       dockerfile: ../deploy/Dockerfile.frontend
+      network: host
     container_name: gpilot-frontend
     ports:
       - "3000:80"
