@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # --- Infrastructure ---
   postgres:
-    image: postgres:15-alpine
+    image: postgres:15
     container_name: gpilot-postgres
     environment:
       POSTGRES_USER: gpilot
@@ -20,7 +20,7 @@ services:
       retries: 5
 
   redis:
-    image: redis:7-alpine
+    image: redis:7
     container_name: gpilot-redis
     ports:
       - "6379:6379"
