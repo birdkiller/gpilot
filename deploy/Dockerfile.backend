@@ -20,8 +20,8 @@ ENV TZ=Asia/Shanghai
 WORKDIR /app
 
 COPY --from=builder /gpilot .
-COPY config/config.yaml ./config/
-COPY migrations/ ./migrations/
+COPY --from=builder /app/config/config.yaml ./config/
+COPY --from=builder /app/migrations/ ./migrations/
 
 ENV GPILOT_CONFIG=/app/config/config.yaml
 ENV GPILOT_MIGRATIONS=/app/migrations
