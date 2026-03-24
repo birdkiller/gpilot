@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  mode: debug # debug / release
+
+database:
+  host: localhost
+  port: 5432
+  user: gpilot
+  password: gpilot
+  dbname: gpilot
+  sslmode: disable
+  max_open_conns: 25
+  max_idle_conns: 5
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
+
+datasources:
+  prometheus:
+    url: http://localhost:9090
+  loki:
+    url: http://localhost:3100
+  elasticsearch:
+    urls:
+      - http://localhost:9200
+  kubernetes:
+    kubeconfig: "" # empty = in-cluster config
+
+llm:
+  base_url: https://api.openai.com/v1
+  api_key: ${LLM_API_KEY}
+  model: gpt-4
+  max_tokens: 2000
+  temperature: 0.3
+  timeout: 60s
+
+alert:
+  pipeline:
+    dedup_window: 5m
+    correlation_window: 10m
+    flapping_threshold: 3
+    flapping_window: 30m
+    auto_analyze_critical: true
+
+log:
+  anomaly_detection:
+    enabled: true
+    check_interval: 5m
+    stddev_threshold: 3.0

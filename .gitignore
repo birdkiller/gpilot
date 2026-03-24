@@ -1,0 +1,35 @@
+# Dependencies
+frontend/node_modules/
+backend/vendor/
+
+# Build outputs
+frontend/dist/
+backend/gpilot.exe
+*.exe
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Database
+*.db
+*.sqlite
+
+# Temp files
+tmp/
+temp/

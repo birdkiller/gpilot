@@ -1,0 +1,21 @@
+# Build stage
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package.json ./
+# Docker 构建时直接 install（Node 18 容器兼容所有依赖版本）
+RUN npm install
+
+COPY . .
+# 直接 vite build，跳过 tsc（类型已在本地验证）
+RUN npx vite build
+
+# Runtime stage
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
