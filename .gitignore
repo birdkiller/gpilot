@@ -4,8 +4,13 @@ backend/vendor/
 
 # Build outputs
 frontend/dist/
-backend/gpilot.exe
+
+# Binary executables
 *.exe
+*.dll
+*.so
+*.dylib
+backend/gpilot
 
 # Environment files
 .env
